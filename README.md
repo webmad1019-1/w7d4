@@ -2,39 +2,38 @@
 
 # Yesterday - day w7d3
 
-- Irongenerate flavour for React -> create-react-app
-- Stateful components
-- Lists, let's loop!
-- Conditional rendering. Bye bye Mr. Handlebars 🥀
-
-## Activities
-
-- Ironcontacts - let's test setState more in depth
-
-# Today - day w7d4
-
 - Forms
 - Component live cycles
 - Routing - detect URL changes and respond dynamically
 
 ## Activities
 
-- Iron nutrition - food components with bulma and forms. Add them and calculate total calories
-- Wiki countries - create a master-detail page using React routing
+- Iron nutrition
+- Wiki countries
 
-# Next - day w7d5
+# Today - day w7d4
 
 - Lifting states
 - Connect app to the backend
 - Building a REST API
 - Integrating the React app
 
+## Activities
+
+- Thinking in React -
+- React Ironbeers - 
+
+# Next - day w7d5
+
+- Authentication
+- Express and file upload
+- Deployment
+
 # Goals
 
-- Understand how to work with forms in React
-- Understand the different phases a component goes through
-- Practise state a bit more
-- Change what gets shown in the app via URL change detection using routing
+- Connecting and communicating components within the front end
+- Connecting and communicating components to the back end
+- Integrating back and front
 
 # Bonus
 
