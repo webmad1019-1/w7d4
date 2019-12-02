@@ -20,8 +20,8 @@
 
 ## Activities
 
-- Thinking in React -
-- React Ironbeers - 
+- Thinking in React - Planning ahead components and their communication
+- React Ironbeers - The random beers now under React
 
 # Next - day w7d5
 
