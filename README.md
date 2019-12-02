@@ -15,8 +15,8 @@
 
 - Lifting states
 - Connect app to the backend
-- Building a REST API
-- Integrating the React app
+- Building a REST API - recap module 2 knowledge 
+- Integrating the React app - connect our React app to an API
 
 ## Activities
 
@@ -37,5 +37,5 @@
 
 # Bonus
 
-More on React forms https://reactjs.org/docs/forms.html
+Presentational and Container Components by Dan Abramov https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
 
