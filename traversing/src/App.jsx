@@ -25,8 +25,8 @@ export default class App extends Component {
     });
   }
 
-  updateValue(e, type) {
-    const { value } = e.target;
+  updateValue(value, type) {
+    // debugger;
     let obj = { ...this.state, values: { ...this.state.values, [type]: value } };
     // debugger;
 
@@ -43,6 +43,7 @@ export default class App extends Component {
         <GenericComponent
           type="A"
           value={genericValueForAll}
+          myValue={values.a}
           onChange={val => this.updateValue(val, "b")}
         >
           <GenericComponent
@@ -50,18 +51,21 @@ export default class App extends Component {
             value={genericValueForAll}
             myValue={values.b}
             onChange={val => this.updateValue(val, "c")}
+            onSentToParent={val => this.updateValue(val, "a")}
           >
             <GenericComponent
               type="C"
               value={genericValueForAll}
               myValue={values.c}
               onChange={val => this.updateValue(val, "c")}
+              onSentToParent={val => this.updateValue(val, "b")}
             />
             <GenericComponent
               type="C"
               value={genericValueForAll}
               myValue={values.c}
               onChange={val => this.updateValue(val, "c")}
+              onSentToParent={val => this.updateValue(val, "b")}
             />
           </GenericComponent>
         </GenericComponent>

@@ -10,7 +10,7 @@ export default class GenericComponent extends Component {
     };
   }
 
-  changeValue() {
+  increaseLocalValue() {
     const { value } = this.state;
 
     this.setState({
@@ -19,7 +19,7 @@ export default class GenericComponent extends Component {
   }
 
   sendToChildren(e) {
-    this.props.onChange(e);
+    this.props.onChange(e.target.value);
     this.setState({
       toChildren: e.target.value
     });
@@ -34,22 +34,38 @@ export default class GenericComponent extends Component {
     return (
       <div className={`box component${type}`}>
         <h3>
-          component {type} (original received value was {addSeparators(propsValue)})
+          <span>component &quot;{type}&quot;</span>
         </h3>
+
         <h4>
-          {addSeparators(propsValue)} (increased by {addSeparators(stateValue)}) ={" "}
-          {addSeparators(propsValue + stateValue)}
+          <strong>{addSeparators(propsValue)}</strong> (sent by top level then increased by local{" "}
+          {addSeparators(stateValue)}) ={" "}
+          <span className="result">{addSeparators(propsValue + stateValue)}</span>
         </h4>
-        <h4>Value sent by the parent: {this.props.myValue}</h4>
+
+        {this.props.myValue && (
+          <h4>
+            <strong>{+this.props.myValue}</strong> (sent by another box then increased by{" "}
+            {stateValue}) ={" "}
+            <span className="result">{addSeparators(+this.props.myValue + stateValue)}</span>
+          </h4>
+        )}
         <input
           type="text"
           placeholder="Communicate to children"
           value={this.state.toChildren}
           onChange={e => this.sendToChildren(e)}
         />
-        <button type="button" onClick={() => this.changeValue()}>
-          Increase local value
+        <button type="button" onClick={() => this.increaseLocalValue()}>
+          Increase value of this box
         </button>
+
+        {this.props.onSentToParent && (
+          <button type="button" onClick={() => this.props.onSentToParent(this.state.toChildren)}>
+            Send current value to parent
+          </button>
+        )}
+
         {children}
       </div>
     );
