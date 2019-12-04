@@ -11,6 +11,7 @@ export default class App extends Component {
       value: 0
     };
   }
+
   update() {
     this.setState({
       value: randomInt(100, 10000)
@@ -18,13 +19,16 @@ export default class App extends Component {
   }
 
   render() {
+    const { value } = this.state;
     return (
       <div>
-        <button onClick={() => this.update()}>Broadcast random value to all boxes</button>
-        <GenericComponent type="A" value={this.state.value}>
-          <GenericComponent type="B" value={this.state.value}>
-            <GenericComponent type="C" value={this.state.value}></GenericComponent>
-            <GenericComponent type="C" value={this.state.value}></GenericComponent>
+        <button type="button" onClick={() => this.update()}>
+          Broadcast random value to all boxes
+        </button>
+        <GenericComponent type="A" value={value}>
+          <GenericComponent type="B" value={value}>
+            <GenericComponent type="C" value={value} />
+            <GenericComponent type="C" value={value} />
           </GenericComponent>
         </GenericComponent>
       </div>
