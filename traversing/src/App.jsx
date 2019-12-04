@@ -9,27 +9,60 @@ export default class App extends Component {
     super();
 
     this.state = {
-      value: 0
+      genericValueForAll: 0,
+      values: {
+        a: null,
+        b: null,
+        c: null
+      }
     };
   }
 
-  update() {
+  updateGenericValueForAll() {
     this.setState({
-      value: randomInt(100, 10000)
+      ...this.state,
+      genericValueForAll: randomInt(100, 10000)
     });
   }
 
+  updateValue(e, type) {
+    const { value } = e.target;
+    let obj = { ...this.state, values: { ...this.state.values, [type]: value } };
+    // debugger;
+
+    this.setState(obj);
+  }
+
   render() {
-    const { value } = this.state;
+    const { genericValueForAll, values } = this.state;
     return (
       <div className="App">
-        <button type="button" onClick={() => this.update()}>
+        <button type="button" onClick={() => this.updateGenericValueForAll()}>
           Broadcast random value to all boxes
         </button>
-        <GenericComponent type="A" value={value}>
-          <GenericComponent type="B" value={value}>
-            <GenericComponent type="C" value={value} />
-            <GenericComponent type="C" value={value} />
+        <GenericComponent
+          type="A"
+          value={genericValueForAll}
+          onChange={val => this.updateValue(val, "b")}
+        >
+          <GenericComponent
+            type="B"
+            value={genericValueForAll}
+            myValue={values.b}
+            onChange={val => this.updateValue(val, "c")}
+          >
+            <GenericComponent
+              type="C"
+              value={genericValueForAll}
+              myValue={values.c}
+              onChange={val => this.updateValue(val, "c")}
+            />
+            <GenericComponent
+              type="C"
+              value={genericValueForAll}
+              myValue={values.c}
+              onChange={val => this.updateValue(val, "c")}
+            />
           </GenericComponent>
         </GenericComponent>
       </div>

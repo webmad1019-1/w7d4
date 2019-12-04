@@ -5,7 +5,8 @@ export default class GenericComponent extends Component {
   constructor() {
     super();
     this.state = {
-      value: 0
+      value: 0,
+      toChildren: 0
     };
   }
 
@@ -14,6 +15,13 @@ export default class GenericComponent extends Component {
 
     this.setState({
       value: 100 + value
+    });
+  }
+
+  sendToChildren(e) {
+    this.props.onChange(e);
+    this.setState({
+      toChildren: e.target.value
     });
   }
 
@@ -32,7 +40,13 @@ export default class GenericComponent extends Component {
           {addSeparators(propsValue)} (increased by {addSeparators(stateValue)}) ={" "}
           {addSeparators(propsValue + stateValue)}
         </h4>
-        <input type="text" placeholder="Communicate to children" />
+        <h4>Value sent by the parent: {this.props.myValue}</h4>
+        <input
+          type="text"
+          placeholder="Communicate to children"
+          value={this.state.toChildren}
+          onChange={e => this.sendToChildren(e)}
+        />
         <button type="button" onClick={() => this.changeValue()}>
           Increase local value
         </button>
