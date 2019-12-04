@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GenericComponent from "./GenericComponent";
 import { randomInt } from "./Utils";
+import "./reset.css";
 import "./App.css";
 
 export default class App extends Component {
@@ -21,7 +22,7 @@ export default class App extends Component {
   render() {
     const { value } = this.state;
     return (
-      <div>
+      <div className="App">
         <button type="button" onClick={() => this.update()}>
           Broadcast random value to all boxes
         </button>

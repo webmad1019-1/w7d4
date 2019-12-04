@@ -1,21 +1,49 @@
-button {
+.App {
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 20px 0;
+}
+
+button {
+  font-weight: bold;
+  background: linear-gradient(#ccc, rgb(68, 67, 67));
+  cursor: pointer;
+}
+
+button,
+input {
+  font-size: 20px;
+  border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 0;
+  margin-right: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+}
+
+input[type="text"] {
+  min-width: 220px;
 }
 
 .box {
-  padding: 50px;
-  background: red;
-  border: 1px solid black;
+  padding: 20px;
+  background: rgba(255, 0, 0, 0.5);
+  border: 2.5px dashed black;
   margin: 10px 0;
+  /* display: flex; */
+  flex-direction: column;
 }
 
 .componentB {
-  background: green;
+  background: rgba(0, 255, 0, 0.5);
 }
 
 .componentC {
-  background: blue;
+  background: rgba(0, 0, 255, 0.5);
 }

@@ -32,6 +32,7 @@ export default class GenericComponent extends Component {
           {addSeparators(propsValue)} (increased by {addSeparators(stateValue)}) ={" "}
           {addSeparators(propsValue + stateValue)}
         </h4>
+        <input type="text" placeholder="Communicate to children" />
         <button type="button" onClick={() => this.changeValue()}>
           Increase local value
         </button>
