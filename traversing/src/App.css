@@ -1,0 +1,21 @@
+button {
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.box {
+  padding: 50px;
+  background: red;
+  border: 1px solid black;
+  margin: 10px 0;
+}
+
+.componentB {
+  background: green;
+}
+
+.componentC {
+  background: blue;
+}
