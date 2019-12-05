@@ -19,6 +19,8 @@ export default class GenericComponent extends Component {
   }
 
   sendToChildren(e) {
+    if (!this.props.onChange) throw new Error("onChange is missing");
+
     this.props.onChange(e.target.value);
     this.setState({
       toChildren: e.target.value
@@ -27,6 +29,7 @@ export default class GenericComponent extends Component {
 
   render() {
     const { type } = this.props;
+    // this value is injected by another actor to this component
     const { value: propsValue } = this.props;
     const { value: stateValue } = this.state;
     const { children } = this.props;
@@ -36,13 +39,11 @@ export default class GenericComponent extends Component {
         <h3>
           <span>component &quot;{type}&quot;</span>
         </h3>
-
         <h4>
           <strong>{addSeparators(propsValue)}</strong> (sent by top level then increased by local{" "}
           {addSeparators(stateValue)}) ={" "}
           <span className="result">{addSeparators(propsValue + stateValue)}</span>
         </h4>
-
         {this.props.myValue && (
           <h4>
             <strong>{+this.props.myValue}</strong> (sent by another box then increased by{" "}
@@ -59,13 +60,11 @@ export default class GenericComponent extends Component {
         <button type="button" onClick={() => this.increaseLocalValue()}>
           Increase value of this box
         </button>
-
         {this.props.onSentToParent && (
           <button type="button" onClick={() => this.props.onSentToParent(this.state.toChildren)}>
             Send current value to parent
           </button>
         )}
-
         {children}
       </div>
     );

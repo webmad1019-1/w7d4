@@ -43,6 +43,10 @@ input[type="text"] {
   flex-direction: column;
 }
 
+.jade .box {
+  /* aqui pones el skin a placer */
+}
+
 .componentB {
   background: rgba(0, 255, 0, 0.5);
 }
@@ -51,7 +55,7 @@ input[type="text"] {
   background: rgba(0, 0, 255, 0.5);
 }
 
-h3 > span {
+h3>span {
   font-size: 30px;
   font-weight: bold;
   text-transform: capitalize;
