@@ -27,7 +27,6 @@
 
 - Authentication
 - Express and file upload
-- Deployment - Maybe
 
 # Goals
 
